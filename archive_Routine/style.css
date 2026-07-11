@@ -1,0 +1,36 @@
+body{
+    background-color: whitesmoke;
+    opacity: 100%;
+    font-family: cursive;
+    
+}
+
+h1{
+    text-align: center;
+    text-decoration-line: underline;
+    color: #002244;
+    opacity: 100%;
+    font-family: cursive;
+}
+
+
+h3{
+    color: #FFA07A;
+}
+
+.bold{
+    color: #27374D;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+ h2{
+    color:#4A90E2 ;
+    text-decoration: underline;
+ }
+  
+  li {
+    margin-bottom: 10px; /* Add some spacing between list items */
+    margin-right: 10%; 
+ }
+  
