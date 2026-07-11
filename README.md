@@ -13,8 +13,12 @@ Rather than deleting these archives, I merged their complete Git history trees h
 | **`archive_LoveCalculator`** | 2023 | `HTML5` `CSS3` `JavaScript` | One of my earliest interactive JS logic scripts calculating user compatibilities. |
 | **`archive_Routine`** | 2023 | `HTML5` `CSS3` | A static daily schedule mapping layout constructed during my first weeks of learning web design. |
 | **`archive_Image`** | 2023 | `HTML5` `CSS3` | Basic DOM manipulation and CSS styling experiments. |
-| **`archive_React-music`** | 2025 | `React` `JSX` | First steps into component-based states and audio playback logic. |
 | **`archive_GuesstheNumber`** | 2023 | `JavaScript` | Simple CLI/Web game testing loop conditions and random number generation. |
+| **`archive_Mapty`** | 2023 | `JavaScript` | Geolocation tracking workout journal app. |
+| **`archive_Quote-Generator`** | 2024 | `JavaScript` | REST API call test for fetching and displaying random quotes. |
+| **`archive_stopeGame`** | 2024 | `JavaScript` | HTML5 Canvas or basic game loop controls logic. |
+| **`archive_Investment-Calc`** | 2024 | `JavaScript` | Basic financial calculation algorithm. |
+| **`archive_React-music`** | 2025 | `React` `JSX` | First steps into component-based states and audio playback logic. |
 
 ---
 
