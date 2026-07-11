@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #ffecf2; /* Light pink background */
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: "Pacifico", cursive;
+        width: 100%;
+      }
+
+      h1 {
+        color: #ff1493; /* Deep pink */
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100vh;
+        width: 100%;
+        padding-left: 60%;
+        padding-right: 10%;
+        padding-top: 30%;
+
+      }
+
+      .love-form {
+        max-width: 400px;
+        width: 100%; /* Adjust width as needed */
+        box-sizing: border-box;
+        margin: 0 auto;
+      }
+
+      label,
+      input {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .hidden {
+        opacity: 0;
+      }
+
+      input {
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ff1493;
+        border-radius: 5px;
+        font-size: 16px;
+        font-family: "Pacifico", cursive;
+      }
+
+      .sname {
+        padding-bottom: 0.5rem;
+      }
+
+      button {
+        padding: 10px 20px;
+        margin: 10px 0;
+        background-color: #ff149194;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-family: "Pacifico", cursive;
+      }
+
+      .aftermsg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh; /* Adjust if needed */
+        width: 100%;
+        margin-right: 80%;
+        margin-bottom: 20%;
+      }
+
+      .message {
+        width: 100%;
+        max-height: auto;
+        text-align: center;
+        padding: 20px; /* Adjust padding as needed */
+        background-color: #ff1493; /* Deep pink */
+        color: white;
+        border-radius: 5px;
+        font-size: 20px;
+        font-family: "Pacifico", cursive;
+        align-items: center;
+      }
+
+      button:hover {
+        background-color: #ff1493;
+      }
+
+      @media screen and (max-width: 600px) {
+        /* Adjust styles for smaller screens */
+        .love-form {
+          max-width: 100%;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="main-text">Love Calculator</h1>
+      <form class="love-form">
+        <label for="fname"></label>
+        <input
+          class="fname"
+          type="text"
+          id="fname"
+          name="fname"
+          placeholder="Your Name"
+        />
+
+        <label for="sname"></label>
+        <input
+          class="sname"
+          type="text"
+          id="sname"
+          name="sname"
+          placeholder="Partner's Name"
+        />
+
+        <button class="btn" type="button">Calculate Love</button>
+      </form>
+    </div>
+    <div class="aftermsg">
+      <h2 class="message hidden"></h2>
+      <button class="btn-again hidden">Try again</button>
+    </div>
+
+    <script>
+      const message = document.querySelector(".message");
+      const btn = document.querySelector(".btn");
+      const btnAgain = document.querySelector(".btn-again");
+      const loveForm = document.querySelector(".love-form");
+      const mainText = document.querySelector(".main-text");
+      const fName = document.querySelector(".fname");
+      const sName = document.querySelector(".sname");
+
+      const toggleFn = function () {
+        message.classList.toggle("hidden");
+        btn.classList.toggle("hidden"); // Remove the dot before "hidden"
+        btnAgain.classList.toggle("hidden"); // Remove the dot before "hidden"
+        loveForm.classList.toggle("hidden");
+        mainText.classList.toggle("hidden");
+      };
+
+      const clearForm = function () {
+        fName.value = "";
+        sName.value = "";
+      };
+
+      const percentageGenerator = function () {
+        toggleFn();
+        clearForm();
+        let lovePercentage = 0;
+        lovePercentage = Math.floor(Math.random() * 100 + 1);
+        if (lovePercentage >= 100) {
+          message.textContent = `Wow, you're a perfect match! 💖 /n ${lovePercentage}%`;
+        } else if (lovePercentage >= 75) {
+          message.textContent = `You have a strong connection! ❤️${lovePercentage}%`;
+        } else if (lovePercentage >= 50) {
+          message.textContent = `Things are looking good! 😊 ${lovePercentage}%`;
+        } else if (lovePercentage >= 25) {
+          message.textContent = `Maybe it's not meant to be. Keep searching! 😕 ${lovePercentage}%`;
+        }
+      };
+      btn.addEventListener("click", function () {
+        percentageGenerator();
+      });
+      btnAgain.addEventListener("click", function () {
+        toggleFn();
+      });
+    </script>
+  </body>
+</html>
+
