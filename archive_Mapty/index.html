@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="/icon.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script defer
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script defer src="script.js"></script>
+    <title>Mapty // Map your workouts</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <img src="logo.png" alt="Logo" class="logo" />
+
+      <ul class="workouts">
+        <form class="form hidden">
+          <div class="form__row">
+            <label class="form__label">Type</label>
+            <select class="form__input form__input--type">
+              <option value="running">Running</option>
+              <option value="cycling">Cycling</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label class="form__label">Distance</label>
+            <input class="form__input form__input--distance" placeholder="km" />
+          </div>
+          <div class="form__row">
+            <label class="form__label">Duration</label>
+            <input
+              class="form__input form__input--duration"
+              placeholder="min"
+            />
+          </div>
+          <!-- Edit Button with SVG -->
+            <button class="btn__edit btn__svg">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square btn__z" viewBox="0 0 16 16">
+                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                </svg>
+              </button>
+        
+            <!-- Delete Button with SVG -->
+              <button class="btn__delete btn__svg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash btn__z" viewBox="0 0 16 16">
+                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                 <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                </svg>
+           </button>
+          <div class="form__row">
+            <label class="form__label">Cadence</label>
+            <input
+              class="form__input form__input--cadence"
+              placeholder="step/min"
+            />
+          </div>
+          <div class="form__row form__row--hidden">
+            <label class="form__label">Elev Gain</label>
+            <input
+              class="form__input form__input--elevation"
+              placeholder="meters"
+            />
+          </div>
+          <button class="form__btn">OK</button>
+        </form>
+        <div class="btn__del hidden">
+          <button class="del">Delete</button>
+        </div>
+
+        
+        
+
+        <!-- <li class="workout workout--running" data-id="1234567890">
+          <h2 class="workout__title">Running on April 14</h2>
+          <div class="workout__details">
+            <span class="workout__icon">🏃‍♂️</span>
+            <span class="workout__value">5.2</span>
+            <span class="workout__unit">km</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⏱</span>
+            <span class="workout__value">24</span>
+            <span class="workout__unit">min</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⚡️</span>
+            <span class="workout__value">4.6</span>
+            <span class="workout__unit">min/km</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">🦶🏼</span>
+            <span class="workout__value">178</span>
+            <span class="workout__unit">spm</span>
+          </div>
+        </li>
+
+        <li class="workout workout--cycling" data-id="1234567891">
+          <h2 class="workout__title">Cycling on April 5</h2>
+          <div class="workout__details">
+            <span class="workout__icon">🚴‍♀️</span>
+            <span class="workout__value">27</span>
+            <span class="workout__unit">km</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⏱</span>
+            <span class="workout__value">95</span>
+            <span class="workout__unit">min</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⚡️</span>
+            <span class="workout__value">16</span>
+            <span class="workout__unit">km/h</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⛰</span>
+            <span class="workout__value">223</span>
+            <span class="workout__unit">m</span>
+          </div>
+        </li> -->
+      </ul>
+
+      <p class="copyright">
+        &copy; Copyright by
+        <a
+          class="twitter-link"
+          target="_blank"
+          href="https://instagram.com/goludhakad98"
+          >Golu Dhakad</a
+        >
+      </p>
+    </div>
+
+    <div id="map"></div>
+  </body>
+</html>
